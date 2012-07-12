@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}mukMenus{% endblock %}
+
+{% block head %}{% endblock %}
+	
+{% block content %}
+	<p>home.html inside of content block</p>
+{% endblock %}
+
+{% block external %}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/pdfobject.js"></script>
+	<!--
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var myPDF = new PDFObject({ url: "media/20120710-imperial-house.pdf" }).embed();
+		});
+	</script>	
+	-->
+{% endblock %}
+
