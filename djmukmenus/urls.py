@@ -14,7 +14,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'menus.views.home', name='home'),
+    url(r'^$', 'menus.views.frontpage', name='frontpage'),
     url(r'^admin/', include(admin.site.urls)),
 )
 

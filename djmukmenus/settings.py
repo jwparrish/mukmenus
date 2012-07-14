@@ -159,11 +159,11 @@ if DEBUG:
     }
 
 else:
-    
-    # GetSentry.com Logging Service
-    # INSTALLED_APPS += ('raven.contrib.django', )
-    # SENTRY_DSN = 'https://958d0c4a149d48918c95314b0e567ec1:74913090cc224a879ab60a438547d162@app.getsentry.com/263'
-    
+     """
+     GetSentry.com Logging Service
+     INSTALLED_APPS += ('raven.contrib.django', )
+     SENTRY_DSN = 'https://958d0c4a149d48918c95314b0e567ec1:74913090cc224a879ab60a438547d162@app.getsentry.com/263'
+     """
 
 # Local Settings Override
 try:
