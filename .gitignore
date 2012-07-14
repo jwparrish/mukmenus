@@ -2,8 +2,7 @@
 *.pot
 *.pyc
 local_settings.py
+settings_local.py
 .DS_Store
 *#*
-djmukmenus/media/*.pdf
-djmukmenus/media/*.png
 djmukmenus/*db
