@@ -2,12 +2,28 @@
 
 {% block title %}mukMenus{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}/style.css" type="text/css" media="screen, projection" />
+{% endblock %}
 	
 {% block content %}
-    
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    
+    {% for menu in menus %}
+        <div class="menulist">
+	        <ul>
+		        <li>
+			        {{ menu.genre|upper }},
+			        {% if '1' in menu.dining_options %}
+			        	DINE IN,
+			        {% endif %}
+			        {% if '2' in menu.dining_options %}
+			            CARRY OUT
+			        {% endif %}
+		        </li>
+		        <li class="restaurantname">{{ menu.restaurant }}</li>
+		        <li>{{ menu.phonenumber }}&nbsp&nbsp&nbsp&nbsp{{ menu.website}}</li>
+	       	</ul>
+       </div>
+	{% endfor %}
 {% endblock %}
 
 {% block external %}

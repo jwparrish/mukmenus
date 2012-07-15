@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from menus.views import *
+from menus.models import Menu
 
 def frontpage(request):
-	return render(request, 'frontpage.html')
+	menus = Menu.objects.all().order_by('-id')
+	return render(request, 'frontpage.html', { 'menus': menus })

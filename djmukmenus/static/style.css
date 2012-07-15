@@ -1,0 +1,10 @@
+.menulist {
+	font-size: .8em;
+}
+.menulist li {
+	list-style-type: none;
+}
+
+.restaurantname {
+	font-size: 2em;
+}
