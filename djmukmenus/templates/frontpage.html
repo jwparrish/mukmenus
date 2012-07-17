@@ -2,25 +2,26 @@
 
 {% block title %}mukMenus{% endblock %}
 
-{% block head %}
-	<link rel="stylesheet" href="{{ STATIC_URL }}/style.css" type="text/css" media="screen, projection" />
-{% endblock %}
+{% block head %}{% endblock %}
 	
 {% block content %}
     {% for menu in menus %}
         <div class="menulist">
-	        <ul>
-		        <li>
-			        {{ menu.genre|upper }},
-			        {% if '1' in menu.dining_options %}
-			        	DINE IN,
-			        {% endif %}
-			        {% if '2' in menu.dining_options %}
-			            CARRY OUT
-			        {% endif %}
-		        </li>
-		        <li class="restaurantname">{{ menu.restaurant }}</li>
-		        <li>{{ menu.phonenumber }}&nbsp&nbsp&nbsp&nbsp{{ menu.website}}</li>
+        	<ul>
+        		<li>
+        				<img src="{{ STATIC_URL }}20120710-imperial-house_6.png" class="thumb_resize" alt="{{ menu.restaurant }} Menu Preview" />
+        				<span id="rest_info">
+	        		        {{ menu.genre|upper }}
+					  		{% if '1' in menu.dining_options %}
+					  			DINE IN
+					  		{% endif %}
+					  		{% if '2' in menu.dining_options %}
+					  			CARRY OUT
+					  		{% endif %}	  	
+						    </li>
+					        <li><span class="restaurantname">{{ menu.restaurant }}</span></li>
+					        <li>{{ menu.phonenumber }}&nbsp&nbsp&nbsp&nbsp<a href="http://{{ menu.website}}">{{ menu.website }}</a></li>
+		   				</span>
 	       	</ul>
        </div>
 	{% endfor %}
