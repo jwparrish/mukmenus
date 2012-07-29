@@ -133,17 +133,22 @@ header {
     left: 360px;
     top: 40px;
     
-    box-shadow: 0 2px 5px #242321;
-    
-    min-height: 600px;
-    
+    box-shadow: 0 4px 13px #a9a699;
+    min-height: 630px;
     background:#6b5139;
+    
+    border-radius: 15px 15px 0px 0px; 
+    -moz-border-radius: 15px 15px 0px 0px; 
+    -webkit-border-radius: 15px 15px 0px 0px;
     
     #header_bar {
         background: #657981;
         width: 100%;
         height: 50px;
         color: white;
+        border-radius: 15px 15px 0px 0px; 
+        -moz-border-radius: 15px 15px 0px 0px; 
+        -webkit-border-radius: 15px 15px 0px 0px;
         
         input {
             position:absolute;
@@ -153,53 +158,56 @@ header {
     }
     
     #display_area {
-        margin: 20px 30px;
+        margin: 20px 20px;
         background: #ededed;
+        
+        border-radius: 8px; 
+        -moz-border-radius: 8px; 
+        -webkit-border-radius: 8px;
+        
+        .menu-list {
+            margin: 0 20px;
+            ul {
+                margin:0;
+                padding:0;
+                list-style-type: none;
+
+                li {
+                    clear: both;
+                    padding: 15px 0;
+
+                    img {
+                        float: left;
+                        width: 112px;
+                        margin-right:15px;
+
+                        box-shadow: 0 1px 3px #515151;
+                    }
+
+                    h2 {
+                        margin:0;
+                        padding:0;
+                        line-height:1em;
+                        font-weight: 200;
+                        font-size: 2em;
+                    }
+
+                    a {
+                        color: #175256;
+                    }
+
+                    .tags {
+                        color: #b2a382;
+                        font-size: 0.7em;
+                        font-weight: bold;
+                        text-transform:uppercase;
+                        text-shadow: 0 1px 0 white;
+                    }
+
+                } // li
+            } // ul
+        } //.menu-list
     }
-    
-    
-    .menu-list {
-        margin: 0px 15px;
-        ul {
-            margin:0;
-            padding:0;
-            list-style-type: none;
-            
-            li {
-                clear: both;
-                padding: 15px 0;
-                
-                img {
-                    float: left;
-                    width: 112px;
-                    margin-right:15px;
-                    
-                    box-shadow: 0 1px 3px #515151;
-                }
-                
-                h2 {
-                    margin:0;
-                    padding:0;
-                    line-height:1em;
-                    font-weight: 200;
-                    font-size: 2em;
-                }
-                
-                a {
-                    color: #175256;
-                }
-                
-                .tags {
-                    color: #b2a382;
-                    font-size: 0.7em;
-                    font-weight: bold;
-                    text-transform:uppercase;
-                    text-shadow: 0 1px 0 white;
-                }
-                
-            } // li
-        } // ul
-    } //.menu-list
 
 }
 
