@@ -1,29 +1,43 @@
+# -*- coding: utf-8 -*-
+
+import datetime as dt
+
 from django.db import models
-from settings import *
+from django.forms import ModelForm
 
-# Needed to save as integer because string was not showing selections when viewing menu object in Admin
-DINING_OPTIONS = (
-		(1,'Dine In'),
-		(2, 'Carry Out'),
-	)
+from djmukmenus.restaurants.models import Restaurant
+from djmukmenus.menus.managers import MenuManager
 
-GENRES = (
-		('chinese', 'Chinese'),
-		('american','American'),
-		('mexican', 'Mexican'),
-		('greek', 'Greek'),
-		('indian', 'Indian'),
-		('german', 'German'),
-		('italian', 'Italian'),
-		('fastfood', 'Fast Food'),
-		('thai', 'Thai'),
-	)
 
 class Menu(models.Model):
-	restaurant = models.CharField(max_length=200)
-	genre = models.CharField(max_length=60, choices=GENRES)
-	phonenumber = models.CharField(max_length=20, verbose_name='phone number')
-	website = models.CharField(max_length=200)
-	dining_options = models.CharField(max_length=200)
-	menu = models.FileField(upload_to=MEDIA_ROOT, blank=True)
-	menu_thumb = models.FileField(upload_to=MEDIA_ROOT, blank=True, verbose_name='menu thumbnail')
+    """A restaurant menu and meta surrounding it."""
+    
+    restaurant = models.ForeignKey(Restaurant)
+    
+    menu_pdf = models.FileField(blank=True, upload_to='restaurant_menus')
+    menu_png = models.ImageField(blank=True, upload_to='restaurant_menus')
+    
+    created = models.DateTimeField(editable=False)
+    modified = models.DateTimeField()
+    
+    # Make note that we're overiding the default manager here.
+    objects = MenuManager()
+    
+    def save(self, *args, **kwargs):
+        """On save, update timestamps"""
+        if not self.id:
+            self.created = dt.datetime.today()
+        self.modified = dt.datetime.now()
+        super(Menu, self).save(*args, **kwargs)
+    
+    class Meta:
+        ordering = ('restaurant__name', 'modified')
+    
+    def __unicode__(self):
+        return "%s's Menu" % self.restaurant
+    
+    @models.permalink
+    def get_absolute_url(self):
+        # In the future, I'd like to see the unique identifier for menus to me
+        # in timestamp format. E.g.: ``mukmenus.com/fork-in-the-road/20120420``
+        return ('menu_detail', (), {'pk': self.pk})
