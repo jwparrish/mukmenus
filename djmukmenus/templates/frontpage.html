@@ -1,40 +1,33 @@
 {% extends 'base.html' %}
 
-{% block title %}mukMenus{% endblock %}
+{% block title %}Restaurant Menus of Mukwonago, WI{% endblock %}
 
 {% block head %}{% endblock %}
-	
+    
 {% block content %}
-    {% for menu in menus %}
-        <div class="menulist">
-        	<ul>
-        		<li>
-        				<img src="{{ STATIC_URL }}20120710-imperial-house_6.png" class="thumb_resize" alt="{{ menu.restaurant }} Menu Preview" />
-        				<span id="rest_info">
-	        		        {{ menu.genre|upper }}
-					  		{% if '1' in menu.dining_options %}
-					  			DINE IN
-					  		{% endif %}
-					  		{% if '2' in menu.dining_options %}
-					  			CARRY OUT
-					  		{% endif %}	  	
-						    </li>
-					        <li><span class="restaurantname">{{ menu.restaurant }}</span></li>
-					        <li>{{ menu.phonenumber }}&nbsp&nbsp&nbsp&nbsp<a href="http://{{ menu.website}}">{{ menu.website }}</a></li>
-		   				</span>
-	       	</ul>
-       </div>
-	{% endfor %}
+
+    <div class="menu-list">
+        <ul>
+            {% for menu in menus %}
+            <li>
+                <img src="{{ STATIC_URL }}20120710-imperial-house_6.png" alt="{{ menu.restaurant }}" />
+                <span class="tags">{{ menu.restaurant.tags }}</span>
+                <h2>{{ menu.restaurant.name }}</h2>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 {% endblock %}
 
 {% block external %}
-	<script type="text/javascript" src="/static/pdfobject.js"></script>
-	<!--
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var myPDF = new PDFObject({ url: "media/20120710-imperial-house.pdf" }).embed();
-		});
-	</script>	
-	-->
+    <script type="text/javascript" src="/static/pdfobject.js"></script>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var myPDF = new PDFObject({ url: "media/20120710-imperial-house.pdf" }).embed();
+        });
+    </script>    
+    -->
 {% endblock %}
 

@@ -156,28 +156,53 @@ header {
         margin: 20px 30px;
         background: #ededed;
     }
-
-    #menu_thumb {
-      float: left;
-    }
-
-    .thumb_resize {
-      float: left;
-      width: 100px;
-      height: 100px;
-      margin-right: 10px;
-    }
-
-    .menulist {
-      font-size: .8em;
-    }
-    .menulist li {
-      list-style-type: none;
-      margin-bottom: 15px;
-    }
-    .restaurantname {
-      font-size: 2em;
-    }
+    
+    
+    .menu-list {
+        margin: 0px 15px;
+        ul {
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            
+            li {
+                clear: both;
+                padding: 15px 0;
+                
+                img {
+                    float: left;
+                    width: 112px;
+                    margin-right:15px;
+                    
+                    box-shadow: 0 1px 3px #515151;
+                }
+                
+                h2 {
+                    margin:0;
+                    padding:0;
+                    line-height:1em;
+                    font-weight: 200;
+                    font-size: 2em;
+                }
+                
+                a {
+                    color: #175256;
+                }
+                
+                .tags {
+                    color: #b2a382;
+                    font-size: 0.7em;
+                    font-weight: bold;
+                    text-transform:uppercase;
+                    text-shadow: 0 1px 0 white;
+                }
+                
+            } // li
+        } // ul
+    } //.menu-list
 
 }
+
+
+
 

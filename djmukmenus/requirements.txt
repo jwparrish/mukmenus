@@ -8,6 +8,7 @@ django-debug-toolbar
 django-endless-pagination
 django-extensions
 django-tagging
+django-tagging
 Django==1.3.1
 Fabric
 gunicorn
@@ -16,4 +17,5 @@ PIL
 python-dateutil==1.5 # higher versions are not compat with py 2.x 
 raven>=1.4.6 # Dep: Sentry Logging Service
 simplejson
+sorl-thumbnail
 South
