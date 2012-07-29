@@ -33,13 +33,13 @@ class Restaurant(models.Model):
         if not self.id:
             self.created = dt.datetime.today()
         self.modified = dt.datetime.now()
-        super(Ticket, self).save(*args, **kwargs)
+        super(Restaurant, self).save(*args, **kwargs)
     
     class Meta:
         ordering = ('name', 'modified')
     
     def __unicode__(self):
-        return "%s" % self.restaurant
+        return "%s" % self.name
     
     @models.permalink
     def get_absolute_url(self):

@@ -1,5 +1,10 @@
 from django.contrib import admin
 
-from menus.models import Menu
+from djmukmenus.menus.models import Menu
 
-admin.site.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    list_display  = ('restaurant', 'modified', 'menu_pdf', 'menu_png')
+    readonly_fields = ('modified',)
+    search_fields = ('name',)
+
+admin.site.register(Menu, MenuAdmin)
